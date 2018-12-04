@@ -19,9 +19,19 @@ function removeStr($data, $remove_array){
     return $data;
 }
 
+function file_cget_contents($address){
+	$ch = curl_init(); // 初期化
+	curl_setopt( $ch, CURLOPT_URL, $address ); // URLの設定
+	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true ); // 出力内容を受け取る設定
+	$result = curl_exec( $ch ); // データの取得
+	curl_close($ch); // cURLのクローズ
+	return $result;
+}
+
 #URLからhtml取得
 $url = $_GET["url"];
-$page_contents = file_get_contents($url);
+//$page_contents = file_get_contents($url);
+$page_contents = file_cget_contents($url);
 
 #keywordを検索
 preg_match('/keywords\\\":\[(.+?)\]/', $page_contents, $match_keyword);
