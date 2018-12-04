@@ -27,7 +27,8 @@ require('func.php');
 if(isset($_GET["url"])){
     $url = $_GET["url"];
 } else {
-    exit;
+    echo "</body>";
+    exit();
 }
 $tag = createvideotag($url);
 echo "<br><center>" . $tag . "</center><br>";
@@ -38,6 +39,7 @@ $page_contents = file_cget_contents($url);
 preg_match('/keywords\\\":\[(.+?)\]/', $page_contents, $match_keyword);
 if(strlen($match_keyword[0]) == 0) {
     echo "メタタグ無し";
+    echo "</body>";
     exit();
 }
 
