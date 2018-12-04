@@ -1,0 +1,48 @@
+body{
+  background-color: gainsboro;
+}
+
+ul, ol {
+  color: #1e366a;
+  border: dotted #1e366a 1px;/*ドット 色 太さ*/
+  padding: 0.5em 0.5em 0.5em 2em;
+}
+ul li, ol li {
+  line-height: 1.5;
+  padding: 0.5em 0;
+}
+
+/* https://kagesai.net/search-form-design/ */
+#form5{
+  /*position:relative;*/
+  margin-bottom:20px;	
+}
+#sbox5{	
+  outline:0;	
+  height:50px;
+  padding:0 10px; 
+  /*position:absolute; */
+  left:0;
+  top:0; 
+  max-width:2700px;
+  border-radius:2px;
+  background:#eee;
+  width: 30%;
+}
+#sbtn5{
+  width:70px;
+  height:50px;
+  /*position:absolute; */
+  left:280px; 
+  top:0;
+  border-radius:2px;
+  background:#7fbfff;
+  color:#fff;
+  font-weight:bold;
+  font-size:16px;
+  border:none;
+}
+#sbtn5:hover{
+  background:#eee;
+  color:#7fbfff;
+}
