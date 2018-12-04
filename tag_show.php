@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang = “ja”>
+<html lang = "ja">
 
 <head>
-<meta charset = “UFT-8”>
+<meta charset = "UFT-8">
 <title>youtube_metatag_get</title>
 </head>
 
@@ -21,9 +21,7 @@ function removeStr($data, $remove_array){
 
 #URLからhtml取得
 $url = $_GET["url"];
-$cmd = "curl " . $url . " > page.html";
-exec($cmd);
-$page_contents = file_get_contents("page.html");
+$page_contents = file_get_contents($url);
 
 #keywordを検索
 preg_match('/keywords\\\":\[(.+?)\]/', $page_contents, $match_keyword);
