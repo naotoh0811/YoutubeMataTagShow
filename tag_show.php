@@ -48,7 +48,7 @@ echo "この動画のメタタグは...<br><ul>";
 #keywordを順番にecho
 for ($i = 0; $i < 100; $i++) { 
     preg_match('/\\\"(.+?)\\\"/', $match_keyword[1], $keyword);
-    echo "<li>" . $keyword[1] . "</li>";
+    echo '<li><a href="https://www.youtube.com/results?search_query=' . $keyword[1] . '" target="_blank">' . $keyword[1] . '</a></li>';
     $match_keyword[1] = removeStr($match_keyword[1], array($keyword[0], ","));
     if(strlen($match_keyword[1]) == 0) {
         echo "</ul>";
