@@ -3,19 +3,28 @@
 
 <head>
     <meta charset = "UFT-8">
-    <title>youtube_metatag_get</title>
+    <title>YouTube Metatag Viewer</title>
     <!-- CSS -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"> -->
-    <link rel="stylesheet" href="style.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"> -->
+	<link rel="stylesheet" href="style.css">
+	<!-- <link rel="styleshhet" href="css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 
-<body>
-<center>
-<form id="form5" action="tag_show.php" method="get">
-    <input id="sbox5" type="text" name="url" placeholder="Youtube URL">
-	<button id="sbtn5" type="submit">check!</button>
-</form>
-</center>
+<body style='background-image: url("youtube_located_white.png");'>
+
+<nav class="navbar navbar-expand-sm navbar-light bg-dark mt-3 mb-3" style="margin-top:0!important;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+		<a class="navbar-brand" style="font-weight:bold;">YouTube Metatag Viewer</a>
+		<div class="collapse navbar-collapse justify-content-center">
+        <form class="form-inline" action="tag_show.php" method="get">
+    		<input id="sbox5" type="text" name="url" placeholder="YouTube URL" style="width:600px">
+			<button id="sbtn5" type="submit">check!</button>
+        </form>
+    </nav> 
+
 
 <!-- -------------------------------------- -->
 <?php
@@ -31,7 +40,7 @@ if(isset($_GET["url"])){
     exit();
 }
 $tag = createvideotag($url);
-echo "<br><center>" . $tag . "</center><br>";
+echo '<br><div style="display:flex;justify-content:center;"><center>' . $tag . "</center>";
 //$page_contents = file_get_contents($url);
 $page_contents = file_cget_contents($url);
 
@@ -43,7 +52,7 @@ if(strlen($match_keyword[0]) == 0) {
     exit();
 }
 
-echo "この動画のメタタグは...<br><ul>";
+echo '<div style="margin-left:35px;">この動画のメタタグは...<br><ul style="background:white; opacity:0.8;">';
 
 #keywordを順番にecho
 for ($i = 0; $i < 100; $i++) { 
@@ -55,6 +64,7 @@ for ($i = 0; $i < 100; $i++) {
         break;
     }
 }
+echo "</div></div>"
 
 ?>
 <!-- -------------------------------------- -->
